@@ -14,14 +14,12 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 #from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from functools import wraps
 from wtforms.validators import DataRequired, URL
+import dotenv
 from dotenv import load_dotenv
 
 import os
 
-
-def configure():
-    load_dotenv()
-configure()
+load_dotenv()
 
 import requests
 from pprint import PrettyPrinter
