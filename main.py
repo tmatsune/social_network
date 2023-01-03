@@ -90,6 +90,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+
 # CONFIGURE TABLES
 followers = db.Table('followers',
         db.Column('follower_id', db.Integer, db.ForeignKey('website_users.id')),
