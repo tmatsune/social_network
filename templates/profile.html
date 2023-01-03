@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<section class="bar-style">
+<div class="card profile" >
+  <div class="card-body">
+    <h1 class="user-email">{{ current_user.name }}</h1>
+    <h1 class="user-email">{{ current_user.email }}</h1>
+    <p> Following: {{num}} </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <p class="list-group-item " >Posts:</p>
+    {% for post in posts %}
+
+    <p class="list-group-item ">{{post.title}}: <br>
+      {{ post.text }}
+      {% if current_user.id == post.author_id %}
+      <br>
+            <a class="del-edi" href="{{ url_for('edit_post', post_id=post.id)}}">Edit post</a>
+      <br>
+            <a class="del-edi" href="{{ url_for('delete', post_id=post.id)}}">Delete post</a>
+            {% endif %}
+
+    {% endfor %}
+  </ul>
+  <div class="card-body">
+    <a href="{{ url_for('new_post') }}" class="card-link">Create New Post</a>
+    <a href="{{ url_for('following_list') }}" class="card-link">Following List</a>
+  </div>
+</div>
+</section>
+{% endblock content %}

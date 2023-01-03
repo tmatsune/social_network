@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1 style="color:white;">All posts</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+{% for post in all_posts %}
+<div class="card border-secondary mb-3 post">
+  <div class="card-header post-subtitle">{{post.title}}</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">{{post.text}}</h5>
+    <p class="card-text post-title">
+      Posted by {{post.author.name}}
+            on {{post.date}}
+            {% if current_user.id == post.author_id %}
+        <br>
+            <a class="" href="{{ url_for('edit_post', post_id=post.id)}}">Edit post</a>
+            <a class="" href="{{ url_for('delete', post_id=post.id)}}">Delete post</a>
+            {% endif %}
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

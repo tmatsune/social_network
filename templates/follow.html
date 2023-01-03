@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="player-table">
+<table class="table">
+  <thead>
+        {% for name in foll %}
+    <tr>
+      <th scope="col"><a href="{{ url_for('other_profile', search_name=name) }}" style="color:black;">{{name}}</a></th>
+    </tr>
+         {% endfor %}
+  </thead>
+</table>
+</section>
+
+{% endblock %}

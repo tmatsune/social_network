@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linked-list</title>
+</head>
+
+<body>
+
+  <section id="title">
+
+    <!-- Title -->
+      <div class="row title-row">
+        <div class="col-10 col-sm-6 col-md-8  ">
+          <h1 class="business-name" >Social Network</h1>
+          <h1 class="nav-link"> Connect with friends across the world</h1>
+        </div>
+
+      </div>
+  </section>
+        <div>
+            <img class="car-img" src="/static/social2.png" alt="Card image cap">
+        </div>
+
+    <div class="sec-title-row">
+        <div class="col-10 col-sm-6 col-md-8  ">
+        <h1 class="business-name" >Following:</h1>
+        {% for post in new_posts %}
+        <div class="card border-primary mb-3 post ">
+        <div class="card-header post-subtitle">{{post.title}}</div>
+        <div class="card-body text-secondary">
+            <h5 class="card-title">{{post.text}}</h5>
+            <p class="card-text post-title">
+            Posted by {{post.author.name}}
+                  on {{post.date}}
+            </p>
+        </div>
+        </div>
+        {% endfor %}
+         </div>
+     </div>
+  <!-- Features -->
+
+  <section id="">
+    <div class="row title-row-2" >
+        <div class="col">
+          <h2></h2>
+          <h5>Connect with Friends</h5>
+          <p>can connect with friends all over the world</p>
+        </div>
+        <div class="col">
+          <h2></h2>
+          <h5>Get live updates on news</h5>
+          <p>Get the latest news on business</p>
+        </div>
+        <div class="col">
+          <h2></h2>
+          <h5>Share what's on your mind</h5>
+          <p>Can share thoughts to all of your followers</p>
+        </div>
+        <footer>
+        <p>© Copyright 2018 </p>
+         </footer>
+      </div>
+  </section>
+</body>
+
+</html>
+{% endblock %}

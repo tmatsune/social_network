@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>player_search</title>
+</head>
+
+<body>
+<div class="card border-secondary mb-3 player-search">
+  <div class="card-header">Search for User</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">Search by first name</h5>
+    <p class="card-text">{{ wtf.quick_form(form, novalidate=True) }}</p>
+  </div>
+</div>
+
+<section class="player-table">
+<table class="table">
+  <thead>
+      {% if names %}
+        {% for name in names %}
+    <tr>
+      <th scope="col"><a href="{{ url_for('other_profile', search_name=name) }}" style="color:black;">{{name}}</a></th>
+    </tr>
+         {% endfor %}
+      {% endif %}
+  </thead>
+</table>
+</section>
+
+
+
+</body>
+</html>
+
+{% endblock %}

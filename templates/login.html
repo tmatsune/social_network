@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<body class="bar-style">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-2"> The Social Network</h2>
+    </div>
+    <div class="col">
+        <div class="card border-dark mb-3 profile">
+        <div class="card-header text">login</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">
+          {% with messages = get_flashed_messages() %}
+          {{ messages[0] }}
+          {% endwith %}
+          </h5>
+          <p class="card-text">{{ wtf.quick_form(form, novalidate=True) }}</p>
+          <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        </div>
+        </div>
+        </div>
+  </div>
+  </div>
+</body>
+{% endblock %}
