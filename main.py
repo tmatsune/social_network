@@ -15,6 +15,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from functools import wraps
 from wtforms.validators import DataRequired, URL
 from dotenv import load_dotenv
+
 import os
 
 
