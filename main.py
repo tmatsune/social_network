@@ -124,7 +124,7 @@ class Posts(db.Model):
     author = db.relationship('User', back_populates='posts')
     date = db.Column(db.String(250), nullable=False)
 
-#db.create_all()
+db.create_all()
 
 # CREATE FORMS
 class registerForm(FlaskForm):
