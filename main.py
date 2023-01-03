@@ -166,7 +166,7 @@ def load_user(user_id):
 def init_app():
     logout_user()
 
-@app.route('/')
+@app.route('/', methods=["GET" ,"POST"])
 def home_page():
     news = news_dict
     try:
