@@ -374,5 +374,6 @@ def following_list():
     return render_template('follow.html', foll=foll)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
