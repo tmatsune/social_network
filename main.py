@@ -85,7 +85,7 @@ ckeditor = CKEditor(app)
 bootstrap = Bootstrap(app)
 # connect to SQlite DB
 app.config['SECRET_KEY'] = os.getenv('secret_key')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///social_network.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
