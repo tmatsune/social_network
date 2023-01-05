@@ -196,7 +196,7 @@ def register():
                 request.form['password'],
                 method='sha256',
                 salt_length=8),
-            name = request.form['name'],
+            name = request.form['name'].lower(),
             pic = ''
         )
         try:
